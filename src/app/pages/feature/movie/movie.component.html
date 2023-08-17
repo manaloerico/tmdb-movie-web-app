@@ -1,0 +1,8 @@
+<ng-container *ngIf="movieDetails$ | async as md">
+  <div class="movie-detail-container">
+    <movie-poster [data]="md.details"></movie-poster>
+    <div class="movie-detail-content">
+    <movie-cast [data]="md.cast"></movie-cast></div>
+  </div>
+</ng-container>
+<ng-container *ngIf="movieId$ | async"></ng-container>

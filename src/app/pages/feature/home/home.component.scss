@@ -1,0 +1,15 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+:host {
+  background-color: #fafafa;
+  .movie-card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin:0% 15%;
+    padding:2% 0%;
+    gap: 0.50em;
+  }
+  movie-card {
+   width: 18%; 
+  }
+}

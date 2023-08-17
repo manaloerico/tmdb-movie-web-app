@@ -1,0 +1,36 @@
+:host{
+    width: 100%;
+    .movie-detail-poster {
+        width: 100%;
+        background-position: left calc((50vw - 170px) - 340px) top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        z-index: 1;
+        &-overlay {
+          background-image: linear-gradient(
+            to right,
+            rgb(61, 59, 57) calc((50vw - 170px) - 340px),
+            rgba(70, 66, 62, 0.84) 50%,
+            rgba(59, 57, 54, 0.84) 100%
+          );
+  
+          .movie-detail-content{
+              display:flex;
+              flex-direction: row;
+              width: 70vw;
+              margin:auto;
+              gap:30px;
+              place-content: center space-between;
+              align-items: center;
+              padding:20px;
+              &-left{
+                  img{
+                      border-radius: 8px;
+                      height: 100%;
+                  }
+              }
+          }
+        }
+      }
+}
