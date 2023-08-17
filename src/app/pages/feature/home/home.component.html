@@ -1,8 +1,0 @@
-<div class="movie-card-container">
-    <ng-container *ngIf="movieList$ | async as movieList">
-      <ng-container *ngFor="let m of movieList">
-        <movie-card [data]="m" (click)="onCardClick(m)"></movie-card>
-      </ng-container>
-    </ng-container>
-  </div>
-  
