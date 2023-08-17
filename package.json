@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "update:plugins": "rm -rf package-lock.json node_modules/tmdb-movie && npm cache clean --force & npm i --save --save-exact",
-    "clean:install": "rm -rf package-lock.json node_modules && npm cache clean --force & npm i --save --save-exact"
+    "clean:install": "rm -rf package-lock.json node_modules && npm cache clean --force & npm i --save --save-exact",
+    "deploy":"ng deploy --base-href=https://manaloerico.github.io/tmdb-movie-web-app/"
   },
   "private": true,
   "dependencies": {
