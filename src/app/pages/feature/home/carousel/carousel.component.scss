@@ -1,0 +1,44 @@
+:host {
+  .carousel-poster-container {
+    width: auto; 
+
+    .carousel {
+      height: calc(550px + 2px);
+      position: relative;
+      overflow: hidden;
+
+      .slider {
+        height: 100%;
+        display: flex;
+        width: 400%;
+        transition: all 0.3s;
+        section {
+          flex-basis: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-size: cover;
+          width: 100%;
+          height: 100%;
+          background-image:url('https://www.themoviedb.org/t/p/original/6YInbRTk39ckuLYFmUgBCKcKNjb.jpg');
+        }
+      }
+      .controls {
+        .arrow {
+          position: absolute;
+          top: 50%; 
+          min-width: 0px;
+          padding:10px 5px ;
+          border:1.5px solid;
+        }
+
+        .arrow.left {
+          left: 10px;
+        }
+        .arrow.right {
+          right: 10px;
+        }
+      }
+    }
+  }
+}

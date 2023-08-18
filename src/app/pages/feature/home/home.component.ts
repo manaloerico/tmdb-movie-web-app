@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router'; 
-import { Observable, map } from 'rxjs';
-import { DiscoverService } from 'tmdb-movie';
+import { Router } from '@angular/router';
+import { Observable, map, take } from 'rxjs';
+import { DiscoverResults, DiscoverService, MovieListService, MovieResults } from 'tmdb-movie';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +9,23 @@ import { DiscoverService } from 'tmdb-movie';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  movieList$: Observable<any> = this.discoverService
+  movieNowPlaying$: Observable<MovieResults[]> = this.movieListService
+    .nowPlaying()
+    .pipe(
+      map((res) => {
+        return res.results.filter((_, i) => i < 3);
+      })
+    );
+  movieList$: Observable<MovieResults[]> = this.discoverService
     .getDiscoverMovie()
-    .pipe(map((result: any) => result.results));
+    .pipe(map((result: DiscoverResults) => result.results));
 
+  poster$: Observable<MovieResults[]> = this.movieList$.pipe(map((res)=>{
+    return res.filter((_, i) => i < 4)
+  }));
   constructor(
     private discoverService: DiscoverService,
+    private movieListService: MovieListService,
     private router: Router
   ) {}
   onCardClick(movie: any): void {
