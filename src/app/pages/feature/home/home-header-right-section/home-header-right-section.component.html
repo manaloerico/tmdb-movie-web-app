@@ -1,0 +1,23 @@
+<div class="section-container">
+  <ng-container *ngFor="let movie of data">
+    <div class="item-container">
+      <div class="item-poster">
+        <img
+          [src]="'https://image.tmdb.org/t/p/w220_and_h330_face'+movie.poster_path"
+          [alt]="movie.original_title"
+        />
+      </div>
+      <div class="item-details">
+        <div class="rate-section">
+          <mat-icon >star</mat-icon>{{ movie.vote_average }}</div>
+        <div class="title-section">{{ movie.original_title }}</div>
+        <div class="overview-section">{{ movie.overview }}</div>
+        <div class="button-section">
+          <button mat-raised-button>
+          <mat-icon>play_arrow</mat-icon>  Watch Trailer
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -6,16 +6,18 @@ import { FeatureComponent } from './feature.component';
 import { AppMaterialModule } from 'src/app/app-material/app-material.module';
 import { HttpClientModule } from '@angular/common/http';
 import {  
-  CastCardComponent,
   CastCardModule,
   DiscoverModule,
   GenreModule,
   MovieCardModule,
   MovieModule,
+  MovieListModule
 } from 'tmdb-movie';
 import { MovieComponent } from './movie/movie.component';
 import { PosterComponent } from './movie/components/poster/poster.component';
-import { CastComponent } from './movie/components/cast/cast.component'; 
+import { CastComponent } from './movie/components/cast/cast.component';   
+import { CarouselComponent } from './home/carousel/carousel.component';
+import { HomeHeaderRightSectionComponent } from './home/home-header-right-section/home-header-right-section.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { CastComponent } from './movie/components/cast/cast.component';
     FeatureComponent,
     MovieComponent,
     PosterComponent,
-    CastComponent
+    CastComponent,
+    CarouselComponent,
+    HomeHeaderRightSectionComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +36,7 @@ import { CastComponent } from './movie/components/cast/cast.component';
     AppMaterialModule,
     DiscoverModule,
     GenreModule,
+    MovieListModule,
     MovieCardModule,
     MovieModule,
     CastCardModule

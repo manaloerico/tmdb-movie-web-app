@@ -1,0 +1,18 @@
+<div class="carousel-poster-container">
+  <div class="carousel">
+    <div class="slider" #slider>
+      <ng-container *ngFor="let d of data;index as i">
+        <section [style.background-image]="'url(https://www.themoviedb.org/t/p/original'+d.backdrop_path+')'">
+        </section>
+      </ng-container> 
+    </div>
+    <div class="controls">
+      <button mat-stroked-button class="arrow left" (click)="swipe('left')">
+        <mat-icon>arrow_left</mat-icon>
+      </button>
+      <button mat-stroked-button class="arrow right" (click)="swipe('right')">
+        <mat-icon>arrow_right</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

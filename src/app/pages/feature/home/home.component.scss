@@ -1,15 +1,33 @@
-
 :host {
   background-color: #fafafa;
+  .header-container {
+    display: flex;
+    margin: 10px 10%;
+    background: #212121;
+    background: -moz-linear-gradient(0deg, rgba(47, 52, 65, 0) 0, #212121 100%);
+    /* background: -webkit-linear-gradient(0deg,rgba(47,52,65,0) 0,#2f3441 100%); */
+    background: linear-gradient(0deg, rgba(47, 52, 65, 0) 0, #212121 100%);
+    flex-direction: row;
+    height: 550px;
+    max-height: 550px;
+    gap:10px;
+    app-carousel {
+      flex: 1 1 auto;
+    }
+    .popular-section {
+      height: 550px;
+      width: 35%;
+    }
+  }
   .movie-card-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin:0% 15%;
-    padding:2% 0%;
-    gap: 0.50em;
+    margin: 0% 10%;
+    padding: 2% 0%;
+    gap: 0.5em;
   }
   movie-card {
-   width: 18%; 
+    width: 18%;
   }
 }
