@@ -1,7 +1,16 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, map, take } from 'rxjs';
-import { DiscoverResults, DiscoverService, MovieListService, MovieResults } from 'tmdb-movie';
+import { Observable, combineLatestWith, forkJoin, map, take } from 'rxjs';
+import {
+  DiscoverResults,
+  DiscoverService,
+  MovieListService,
+  MovieResults,
+  NowPlayingResults,
+  PopularResults,
+  TopRatedResults,
+  UpComingResults,
+} from 'tmdb-movie';
 
 @Component({
   selector: 'app-home',
@@ -9,20 +18,49 @@ import { DiscoverResults, DiscoverService, MovieListService, MovieResults } from
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  movieNowPlaying$: Observable<MovieResults[]> = this.movieListService
+  nowPlaying$: Observable<MovieResults[]> = this.movieListService
     .nowPlaying()
-    .pipe(
-      map((res) => {
-        return res.results.filter((_, i) => i < 3);
-      })
-    );
-  movieList$: Observable<MovieResults[]> = this.discoverService
-    .getDiscoverMovie()
-    .pipe(map((result: DiscoverResults) => result.results));
+    .pipe(map((result: NowPlayingResults) => result.results));
 
-  poster$: Observable<MovieResults[]> = this.movieList$.pipe(map((res)=>{
-    return res.filter((_, i) => i < 5)
-  }));
+  popular$: Observable<MovieResults[]> = this.movieListService
+    .popular()
+    .pipe(map((result: PopularResults) => result.results));
+  topRated$: Observable<MovieResults[]> = this.movieListService
+    .topRated()
+    .pipe(map((result: TopRatedResults) => result.results));
+  upComing$: Observable<MovieResults[]> = this.movieListService
+    .upComing()
+    .pipe(map((result: UpComingResults) => result.results));
+  movieList$ = forkJoin([
+    this.nowPlaying$,
+    this.popular$,
+    this.topRated$,
+    this.upComing$,
+  ]).pipe(
+    map(([nowPlaying, popular, topRated, upComing]) => {
+      return { nowPlaying, popular, topRated, upComing };
+    })
+  );
+  movieNowPlaying$: Observable<MovieResults[]> = this.nowPlaying$.pipe(
+    map((res) => {
+      return res.filter((_, i) => i < 3);
+    })
+  );
+  dicoverList$: Observable<MovieResults[]> = this.discoverService
+    .getDiscoverMovie()
+    .pipe(
+      map((result: DiscoverResults) => result.results.filter((_, i) => i < 10))
+    );
+  sidePoster$: Observable<MovieResults[]> = this.discoverService
+    .getDiscoverMovie()
+    .pipe(
+      map((result: DiscoverResults) => result.results.filter((_, i) => i < 3))
+    );
+  poster$: Observable<MovieResults[]> = this.nowPlaying$.pipe(
+    map((res) => {
+      return res.filter((_, i) => i < 5);
+    })
+  );
   constructor(
     private discoverService: DiscoverService,
     private movieListService: MovieListService,

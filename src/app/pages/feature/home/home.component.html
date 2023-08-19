@@ -6,15 +6,25 @@
 
     <tmdb-home-header-right-section
       class="popular-section"
-      [data]="movieNowPlaying$ | async"
+      [data]="sidePoster$ | async"
     ></tmdb-home-header-right-section>
   </div>
 
-  <div class="movie-card-container">
-    <ng-container *ngIf="movieList$ | async as movieList">
-      <ng-container *ngFor="let m of movieList">
+  <!-- <div class="movie-card-container">
+    <ng-container *ngIf="dicoverList$ | async as discoverList">
+      <ng-container *ngFor="let m of discoverList">
         <movie-card [data]="m" (click)="onCardClick(m)"></movie-card>
       </ng-container>
     </ng-container>
-  </div>
+  </div> -->
+
+  <ng-container *ngIf="(movieList$ | async) as movieList">
+
+    <movie-now-playing [data]="movieList.nowPlaying" [number]="movieList.nowPlaying.length" title="Trending for this week" (onCardClick)="onCardClick($event)"></movie-now-playing>
+    <movie-now-playing [data]="movieList.popular" [number]="movieList.popular.length" title="Popular" (onCardClick)="onCardClick($event)"></movie-now-playing>
+    <movie-now-playing [data]="movieList.topRated" [number]="movieList.topRated.length" title="Top Rated" (onCardClick)="onCardClick($event)"></movie-now-playing>
+    <movie-now-playing [data]="movieList.upComing" [number]="movieList.upComing.length" title="Up Coming" (onCardClick)="onCardClick($event)"></movie-now-playing>
+  
+  </ng-container>
 </div>
+
