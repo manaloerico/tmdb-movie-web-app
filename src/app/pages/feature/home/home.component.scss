@@ -8,7 +8,7 @@
     padding:0px 10%;
     .header-container { 
       display: flex;
-      margin: 10px auto;
+      margin: 10px auto 30px;
       background: #212121;
       background: -moz-linear-gradient(
         0deg,
@@ -16,7 +16,8 @@
         #212121 100%
       );
       /* background: -webkit-linear-gradient(0deg,rgba(47,52,65,0) 0,#2f3441 100%); */
-      background: linear-gradient(0deg, rgba(47, 52, 65, 0) 0, #212121 100%);
+      background: linear-gradient(0deg,rgba(47,52,65,0) 0,#2f3441 100%);
+    
       flex-direction: row;
       height: 550px;
       max-height: 550px;
@@ -45,6 +46,10 @@
       display: flex;
       place-content: stretch flex-start;
       align-items: stretch;
+    }
+
+    movie-now-playing{
+      margin-bottom: 60px;
     }
   }
 }

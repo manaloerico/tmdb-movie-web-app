@@ -1,0 +1,24 @@
+<div class="section-container">
+  <div class="section-header">
+    <h2>{{title}}</h2>
+    <mat-button-toggle-group name="trending" aria-label="Trending" (change)="toggleChange($event)" [value]="'movie'">
+      <mat-button-toggle value="movie"  >
+        <div class="toggle-section">
+          <mat-icon>play_circle_outline</mat-icon>
+          <span>Movies</span>
+        </div></mat-button-toggle
+      >
+      <mat-button-toggle value="tv-shows">
+        <div class="toggle-section">
+          <mat-icon>format_list_bulleted</mat-icon>
+          <span>TV Shows</span>
+        </div></mat-button-toggle
+      >
+    </mat-button-toggle-group>
+  </div>
+  <div class="movie-card-container">
+    <ng-container *ngFor="let m of data">
+      <movie-card [data]="m" (click)="onCardClick.emit(m)"></movie-card>
+    </ng-container>
+  </div>
+</div>

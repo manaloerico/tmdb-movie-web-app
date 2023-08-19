@@ -29,18 +29,11 @@
             height: 200px;
             width: 100%;
             padding-top: 100px;
-            background: -moz-linear-gradient(
-              180deg,
-              rgba(30, 33, 41, 0) 0,
-              #303030 71%,
-              #303030 100%
-            );
-            background: linear-gradient(
-              180deg,
-              rgba(30, 33, 41, 0) 0,
-              #303030 71%,
-              #303030 100%
-            );
+               background: #1e2129;
+    background: -moz-linear-gradient(180deg,rgba(30,33,41,0) 0,#1e2129 71%,#1e2129 100%);
+    background: -webkit-linear-gradient(180deg,rgba(30,33,41,0) 0,#1e2129 71%,#1e2129 100%);
+    background: linear-gradient(180deg,rgba(30,33,41,0) 0,#1e2129 71%,#1e2129 100%);
+
 
             &-content {
               padding: 0px 30px;

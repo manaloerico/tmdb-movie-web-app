@@ -1,0 +1,67 @@
+:host {
+  .section-header {
+    display: flex;
+    flex-direction: row;
+    place-content: center flex-start;
+    align-items: center;
+    gap: 100px;
+    border-left: 5px solid rgb(1, 180, 228);
+    padding: 0 10px;
+    margin: 0 0 25px 0;
+    h2 {
+      margin-bottom: 0px; 
+      font-size: 22px !important;
+      line-height: 1.2em;
+      font-weight: 600;
+    }
+
+    mat-button-toggle-group ::ng-deep{
+      border: none;
+      mat-button-toggle {
+        background: none;
+        border: none;
+      }
+      mat-button-toggle:hover {
+        background: none;
+      }
+      button { 
+        .mat-button-toggle-label-content {
+          line-height: 36px;
+        }
+      }
+      .mat-button-toggle-checked {
+        color: #00acc1 !important;
+      }
+    }
+    .toggle-section {
+      align-items: center;
+      display: inline-flex;
+      gap: 5px;
+      cursor: pointer;
+      span {
+        padding-top: 1px;
+      }
+      mat-icon {
+        font-size: 20px;
+        height: auto;
+        width: auto;
+      }
+    }
+  }
+  .movie-card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    align-items: stretch;
+    place-content: center space-between;
+    width: auto;
+    gap: 0.5em;
+  }
+  movie-card {
+    width: calc((100% / 10) - 10px);
+    display: flex;
+    place-content: stretch flex-start;
+    align-items: stretch;
+  }
+}

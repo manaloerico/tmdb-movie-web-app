@@ -18,6 +18,7 @@ import { PosterComponent } from './movie/components/poster/poster.component';
 import { CastComponent } from './movie/components/cast/cast.component';   
 import { CarouselComponent } from './home/carousel/carousel.component';
 import { HomeHeaderRightSectionComponent } from './home/home-header-right-section/home-header-right-section.component';
+import { MovieNowPlayingComponent } from './home/movie-now-playing/movie-now-playing.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HomeHeaderRightSectionComponent } from './home/home-header-right-sectio
     PosterComponent,
     CastComponent,
     CarouselComponent,
-    HomeHeaderRightSectionComponent
+    HomeHeaderRightSectionComponent,
+    MovieNowPlayingComponent
   ],
   imports: [
     CommonModule,
