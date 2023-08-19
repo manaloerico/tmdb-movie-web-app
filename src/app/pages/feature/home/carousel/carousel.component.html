@@ -1,10 +1,28 @@
 <div class="carousel-poster-container">
   <div class="carousel">
     <div class="slider" #slider>
-      <ng-container *ngFor="let d of data;index as i">
-        <section [style.background-image]="'url(https://www.themoviedb.org/t/p/original'+d.backdrop_path+')'">
+      <ng-container *ngFor="let d of data; index as i">
+        <section
+          [style.background-image]="
+            'url(https://www.themoviedb.org/t/p/original' +
+            d.backdrop_path +
+            ')'
+          "
+        >
+          <div class="slide-caption">
+            <div class="slide-caption-content">
+              <div class="content-left">
+                <img [src]="'https://image.tmdb.org/t/p/w220_and_h330_face'+d.poster_path" [alt]="d.original_title" [title]="d.original_title"> 
+              </div>
+              <div class="content-right">
+                <div class="caption-title">{{d.original_title}}</div>
+                <div class="caption-rating"><mat-icon>star</mat-icon><span>{{d.vote_average}}</span></div>
+                <div class="caption-overview">{{d.overview}}</div>
+              </div>
+            </div>
+          </div>
         </section>
-      </ng-container> 
+      </ng-container>
     </div>
     <div class="controls">
       <button mat-stroked-button class="arrow left" (click)="swipe('left')">

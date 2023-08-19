@@ -21,7 +21,7 @@ export class HomeComponent {
     .pipe(map((result: DiscoverResults) => result.results));
 
   poster$: Observable<MovieResults[]> = this.movieList$.pipe(map((res)=>{
-    return res.filter((_, i) => i < 4)
+    return res.filter((_, i) => i < 5)
   }));
   constructor(
     private discoverService: DiscoverService,
