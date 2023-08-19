@@ -1,16 +1,20 @@
-<div class="header-container">
-  <app-carousel [data]="poster$ | async"></app-carousel>
-
-  <tmdb-home-header-right-section
-    class="popular-section" [data]="movieNowPlaying$ | async"
-  ></tmdb-home-header-right-section>
-</div>
-
-<div class="movie-card-container">
-  <ng-container *ngIf="movieList$ | async as movieList">
-    <ng-container *ngFor="let m of movieList">
-      <movie-card [data]="m" (click)="onCardClick(m)"></movie-card>
+<div class="home-container">
+  <div class="header-container">
+    <ng-container *ngIf="poster$ | async as poster">
+      <app-carousel [data]="poster" [number]="poster.length"></app-carousel>
     </ng-container>
-  </ng-container>
+
+    <tmdb-home-header-right-section
+      class="popular-section"
+      [data]="movieNowPlaying$ | async"
+    ></tmdb-home-header-right-section>
+  </div>
+
+  <div class="movie-card-container">
+    <ng-container *ngIf="movieList$ | async as movieList">
+      <ng-container *ngFor="let m of movieList">
+        <movie-card [data]="m" (click)="onCardClick(m)"></movie-card>
+      </ng-container>
+    </ng-container>
+  </div>
 </div>
- 
